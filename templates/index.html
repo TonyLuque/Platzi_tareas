@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platzi Tareas</title>
+</head>
+<body>
+    <h1>Platzi Tareas</h1>
+    
+    <div>
+        <form action="{{ url_for('tareas') }}" method="POST">
+            {{ login_form.tarea.label }}
+            {{ login_form.tarea }}
+    
+            {{ login_form.submit}}
+        </form>
+    </div>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+
+    {% if todos%}
+        {% for todo in todos %}
+            <div> 
+                <p> Para hacer: <span id="{{ todo.name }}">{{ todo.name }}</span></p>
+            </div>
+            
+        {% endfor %}
+    {% else %}
+        <h3>Nada por hacer</h3>
+        <p>Agrega algo</p>
+    {% endif %}       
+</body>
+</html>
