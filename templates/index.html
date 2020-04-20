@@ -24,6 +24,7 @@
         {% for todo in todos %}
             <div> 
                 <p> Para hacer: <span id="{{ todo.name }}">{{ todo.name }}</span></p>
+                <input type="button" value="Borrar">
             </div>
             
         {% endfor %}

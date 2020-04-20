@@ -44,12 +44,13 @@ def tareas():
         collection.insert_one({"name":login_form.tarea.data})
 
         flash('Tarea registrada')
+        print('Tarea añadida')
 
         return redirect(url_for('index'))
 
     if request.method == 'DELETE':
         collection.delete_one({"name": login_form.tarea.data})
-        print('Borrar')
+        print('Borrar: se ha llamado al DELETE')
         return redirect(url_for('index'))
 
 
